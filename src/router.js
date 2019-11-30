@@ -20,7 +20,6 @@ import MessageList1 from "./components/zl/common/MessageList1.vue"
 import Login from "./components/zl/common/Login"
 import Recomment from "./components/zl/common/Recomment"
 import Register from "./components/zl/common/Register"
-import Details1 from "./components/zl/common/Details1.vue" 
 //临时指定消息列表组件路径
 
 //2:为组件配置访问路径
@@ -45,6 +44,5 @@ export default new Router({
  {path:'/Register',component:Register},
 {path:'/Recomment',component:Recomment},
 {path:'/Login',component:Login},
-{name:"Details1",path:'/Details1',component:Details1},
   ]
 })
