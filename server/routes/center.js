@@ -25,5 +25,21 @@ centerRouter.get("/myinfo",(req,res)=>{
    })
  })
 });
+centerRouter.get("/mybook",(req,res)=>{
+  let uid = req.query.uid;
+  let pid = req.query.pid;
+  console.log(req.query)
+var sql="SELECT P.po_uid,P.po_title,P.po_url,U.user_name,U.user_pic FROM zl_post AS P JOIN zl_user AS U ON P.po_uid = U.user_id WHERE U.user_id = ? AND P.po_id = ?;"
+pool.query(sql,[uid,pid],(err,result)=>{
+  //err 严重错误，程序停止
+  if(err)throw err;
+  if(result.length> 0){
+    res.send({code:1,msg:"我的信息查询成功",gzsl:result});
+  }else{
+    res.send({code:2,msg:"暂未发表内容"})
+  }
+       
+     })
+})
 //http://127.0.0.1:3000/center/myinfo?uid=1
 module.exports=centerRouter;

@@ -80,7 +80,7 @@ postRouter.get("/searchpost",(req,res)=>{
 })
 postRouter.get("/findmynote",(req,res)=>{
   var uid=req.query.uid;
-  var sql="SELECT P.po_uid,P.po_url,P.po_url1,P.po_url2,P.po_url3,P.po_url4,P.po_url5,P.po_title,U.user_name,U.user_pic FROM zl_post AS P JOIN zl_user AS U ON P.po_uid = U.user_id WHERE U.user_id = ? ORDER BY P.po_id DESC";
+  var sql="SELECT P.po_id,P.po_uid,P.po_url,P.po_url1,P.po_url2,P.po_url3,P.po_url4,P.po_url5,P.po_title,U.user_name,U.user_pic FROM zl_post AS P JOIN zl_user AS U ON P.po_uid = U.user_id WHERE U.user_id = ? ORDER BY P.po_id DESC";
   
   pool.query(sql,[uid],(err,result)=>{
     if(err) throw err;
